@@ -1,0 +1,11 @@
+C:\Users\kenan\OneDrive\Documents\C#\NotapadCsharp\NotapadCsharp\bin\Debug\NotapadCsharp.exe.config
+C:\Users\kenan\OneDrive\Documents\C#\NotapadCsharp\NotapadCsharp\bin\Debug\NotapadCsharp.exe
+C:\Users\kenan\OneDrive\Documents\C#\NotapadCsharp\NotapadCsharp\bin\Debug\NotapadCsharp.pdb
+C:\Users\kenan\OneDrive\Documents\C#\NotapadCsharp\NotapadCsharp\obj\Debug\NotapadCsharp.csproj.AssemblyReference.cache
+C:\Users\kenan\OneDrive\Documents\C#\NotapadCsharp\NotapadCsharp\obj\Debug\NotapadCsharp.csproj.SuggestedBindingRedirects.cache
+C:\Users\kenan\OneDrive\Documents\C#\NotapadCsharp\NotapadCsharp\obj\Debug\NotapadCsharp.Properties.Resources.resources
+C:\Users\kenan\OneDrive\Documents\C#\NotapadCsharp\NotapadCsharp\obj\Debug\NotapadCsharp.csproj.GenerateResource.cache
+C:\Users\kenan\OneDrive\Documents\C#\NotapadCsharp\NotapadCsharp\obj\Debug\NotapadCsharp.csproj.CoreCompileInputs.cache
+C:\Users\kenan\OneDrive\Documents\C#\NotapadCsharp\NotapadCsharp\obj\Debug\NotapadCsharp.exe
+C:\Users\kenan\OneDrive\Documents\C#\NotapadCsharp\NotapadCsharp\obj\Debug\NotapadCsharp.pdb
+C:\Users\kenan\OneDrive\Documents\C#\NotapadCsharp\NotapadCsharp\obj\Debug\NotapadCsharp.IndexForm.resources
