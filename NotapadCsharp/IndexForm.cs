@@ -8,8 +8,13 @@ namespace NotapadCsharp
         public IndexForm()
         {
             InitializeComponent();
-            MainMenuStrip mainMenuStrip = new MainMenuStrip();
+            var mainMenuStrip = new MainMenuStrip();
+            var mainMinTabControl = new MainTabControl();
             Controls.Add(mainMenuStrip);
+            
+            mainMinTabControl.TabPages.Add("Onglet 1");
+
+            Controls.AddRange(new Control[] { mainMinTabControl, mainMenuStrip });
         }
     }
 }

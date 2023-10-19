@@ -4,9 +4,10 @@ namespace NotapadCsharp.Controls
 {
     class MainMenuStrip : MenuStrip 
     {
+        private const string MENU_NAME = "MainMenuStrip";
         public MainMenuStrip()
         {
-            Name = "MainMenuStrip";
+            Name = MENU_NAME ;
             Dock = DockStyle.Top;
             FileDropDownMenu();
             EditDropDownMenu();
