@@ -8,6 +8,7 @@ namespace NotapadCsharp
 {
     static class Program
     {
+        public static IndexForm IndexForm;
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -16,7 +17,8 @@ namespace NotapadCsharp
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new IndexForm());
+            IndexForm = new IndexForm();
+            Application.Run(IndexForm);
         }
     }
 }

@@ -46,8 +46,10 @@
         <Reference Include="System.Xml"/>
     </ItemGroup>
     <ItemGroup>
+        <Compile Include="Controls\CustomRichTextBox.cs" />
         <Compile Include="Controls\MainMenuStrip.cs" />
         <Compile Include="Controls\MainTabControl.cs" />
+        <Compile Include="Controls\RichTextMenuBox.cs" />
         <Compile Include="Controls\TabControlMenuStrip.cs" />
         <Compile Include="IndexForm.cs">
             <SubType>Form</SubType>
@@ -55,6 +57,7 @@
         <Compile Include="IndexForm.Designer.cs">
             <DependentUpon>IndexForm.cs</DependentUpon>
         </Compile>
+        <Compile Include="Object\TextFile.cs" />
         <Compile Include="Program.cs"/>
         <Compile Include="Properties\AssemblyInfo.cs"/>
         <EmbeddedResource Include="IndexForm.resx">
