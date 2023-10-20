@@ -57,6 +57,7 @@
         <Compile Include="IndexForm.Designer.cs">
             <DependentUpon>IndexForm.cs</DependentUpon>
         </Compile>
+        <Compile Include="Object\Session.cs" />
         <Compile Include="Object\TextFile.cs" />
         <Compile Include="Program.cs"/>
         <Compile Include="Properties\AssemblyInfo.cs"/>

@@ -1,11 +1,13 @@
 ﻿using System.Windows.Forms;
-using System.Windows.Forms.VisualStyles;
 
 namespace NotapadCsharp.Controls
 {
     class MainMenuStrip : MenuStrip 
     {
         private const string MENU_NAME = "MainMenuStrip";
+
+        private IndexForm _form;
+        
         private FontDialog _fontDialog;
         
         public MainMenuStrip()
@@ -17,6 +19,11 @@ namespace NotapadCsharp.Controls
             EditDropDownMenu();
             FormatDropDownMenu();
             ViewDropDownMenu();
+
+            HandleCreated += (s, e) =>
+            {
+                _form = FindForm() as IndexForm;
+            };
         }
 
         public void FileDropDownMenu()
@@ -28,10 +35,16 @@ namespace NotapadCsharp.Controls
             var  saveMenu = new ToolStripMenuItem("Enregistrer",null,null,Keys.Control | Keys.S);
             var  saveAsMenu = new ToolStripMenuItem("Enregistrer sous..",null,null,Keys.Control | Keys.Shift | Keys.N);
             var  quitMenu = new ToolStripMenuItem("Quitter",null,null,Keys.Alt | Keys.F4);
-            quitMenu.Click += (s, e) =>
+            newMenu.Click += (s, e) =>
             {
-                
+                var tabControl = _form.MaintabControl;
+                var tabPagesCount = tabControl.TabPages.Count;
+                var fileName = $"sans titre {tabPagesCount + 1}";
+
+                var newTabPage = new TabPage(fileName);
+                tabControl.TabPages.Add(newTabPage);
             };
+
             fileDropDownMenu.DropDownItems.AddRange(new ToolStripItem[]{newMenu,openMenu,saveAsMenu,saveMenu,quitMenu});
             Items.Add(fileDropDownMenu);
         }
@@ -44,12 +57,12 @@ namespace NotapadCsharp.Controls
             var  restorMenu = new ToolStripMenuItem("Restaurer",null,null,Keys.Control | Keys.O);
             cancelMenu.Click += (s, e) =>
             {
-                if (IndexForm.RichTextBox.CanUndo) IndexForm.RichTextBox.Undo();
+                if (_form.CurrentRtb.CanUndo) _form.CurrentRtb.Undo();
             };
             
             restorMenu.Click += (s, e) =>
             {
-                if (IndexForm.RichTextBox.CanRedo) IndexForm.RichTextBox.Redo();
+                if (_form.CurrentRtb.CanRedo) _form.CurrentRtb.Redo();
             };
             editDropDownMenu.DropDownItems.AddRange(new ToolStripItem[]{cancelMenu,restorMenu});
             Items.Add(editDropDownMenu);
@@ -63,10 +76,10 @@ namespace NotapadCsharp.Controls
             
             policelMenu.Click += (s, e) =>
             {
-                _fontDialog.Font = IndexForm.RichTextBox.Font;
+                _fontDialog.Font = _form.CurrentRtb.Font;
                 _fontDialog.ShowDialog();
 
-                IndexForm.RichTextBox.Font = _fontDialog.Font;
+                _form.CurrentRtb.Font = _fontDialog.Font;
             };
             
             formatDropDownMenu.DropDownItems.AddRange(new ToolStripItem[]{policelMenu});
@@ -82,7 +95,7 @@ namespace NotapadCsharp.Controls
             
             var zoomIn = new ToolStripMenuItem("Zoom avant",null,null,Keys.Control | Keys.Add);
             var zoomOut = new ToolStripMenuItem("Zoom arrière",null,null,Keys.Control | Keys.Subtract);
-            var zoomReset = new ToolStripMenuItem("Zoom arrière",null,null,Keys.Control | Keys.Divide);
+            var zoomReset = new ToolStripMenuItem("Zoom Reset",null,null,Keys.Control | Keys.Divide);
 
             zoomIn.ShortcutKeyDisplayString = "Ctrl+Num + ";
             zoomOut.ShortcutKeyDisplayString = "Ctrl+Num - ";
@@ -99,22 +112,22 @@ namespace NotapadCsharp.Controls
             };
             zoomIn.Click += (s, e) =>
             {
-                if (IndexForm.RichTextBox.ZoomFactor < 33F)
+                if (_form.CurrentRtb.ZoomFactor < 33F)
                 {
-                    IndexForm.RichTextBox.ZoomFactor += 0.2F;
+                    _form.CurrentRtb.ZoomFactor += 0.2F;
                 }
             };
             zoomOut.Click += (s, e) =>
             {
-                if (IndexForm.RichTextBox.ZoomFactor < 7F)
+                if (_form.CurrentRtb.ZoomFactor < 7F)
                 {
-                    IndexForm.RichTextBox.ZoomFactor -= 0.2F;
+                    _form.CurrentRtb.ZoomFactor -= 0.2F;
                 }
             };
             
             zoomReset.Click += (s, e) =>
             {
-                IndexForm.RichTextBox.ZoomFactor = 1F;
+                _form.CurrentRtb.ZoomFactor = 1F;
             };
             zoomDropDownMenu.DropDownItems.AddRange(new ToolStripItem[]{zoomIn,zoomOut,zoomReset});
             viewDropDownMenu.DropDownItems.AddRange(new ToolStripItem[]{alwaysOnTopMenu,zoomDropDownMenu});

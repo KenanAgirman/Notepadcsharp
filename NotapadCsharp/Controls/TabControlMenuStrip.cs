@@ -5,7 +5,7 @@ namespace NotapadCsharp.Controls
 {
     public class TabControlMenuStrip:ContextMenuStrip
     {
-            private const string NAME = "TabControlMenuStrip";
+        private const string NAME = "TabControlMenuStrip";
 
         public TabControlMenuStrip()
         {

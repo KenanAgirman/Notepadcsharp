@@ -6,21 +6,26 @@ namespace NotapadCsharp
 {
     public partial class IndexForm : Form
     {
-    public static RichTextBox RichTextBox;
+        public  RichTextBox CurrentRtb;
+        public TabControl MaintabControl;
+
         public IndexForm()
         {
             InitializeComponent();
             var mainMenuStrip = new MainMenuStrip();
-            var mainMinTabControl = new MainTabControl();
-            RichTextBox = new CustomRichTextBox();
             
+            CurrentRtb = new CustomRichTextBox();
             Controls.Add(mainMenuStrip);
-            
-            mainMinTabControl.TabPages.Add("Onglet 1");
-            mainMinTabControl.TabPages[0].Controls.Add(RichTextBox);
+
+            MaintabControl = new MainTabControl(); // Créez l'instance de MaintabControl ici
+        
+            MaintabControl.TabPages.Add("Onglet 1");
+            MaintabControl.TabPages[0].Controls.Add(CurrentRtb);
 
             TextFile file = new TextFile("c:/test.txt");
-            Controls.AddRange(new Control[] { mainMinTabControl, mainMenuStrip });
+
+            Controls.AddRange(new Control[] { MaintabControl, mainMenuStrip });
         }
     }
+
 }

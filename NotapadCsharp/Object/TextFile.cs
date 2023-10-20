@@ -10,8 +10,8 @@ namespace NotapadCsharp.Object
         public String BackupFileName { get; set; }
         public String SafeFileName { get; set; }
         public String SafeBackupFileName { get; set; }
-        
-        public String Contents { get; set; }
+
+        public String Contents { get; set; } = String.Empty;
 
 
         public TextFile()
@@ -23,7 +23,6 @@ namespace NotapadCsharp.Object
         {
             FileName = fileName;
             SafeFileName = Path.GetFileName(fileName);
-            
         }
     }
 }
